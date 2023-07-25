@@ -65,7 +65,14 @@ function forSymbol(symbol){
       }
       break;
     case '=':
-    output = runningCalc;
+      if (lastSymbol === null){
+        return;
+      }
+      
+      calculate(parseInt(output))
+      lastSymbol = null;
+      output = runningCalc;
+      runningCalc = '0'
     break;
     case '+':
     case '-':
